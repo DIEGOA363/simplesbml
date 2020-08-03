@@ -306,9 +306,9 @@ class sbmlModel(object):
     def getListOfInitialAssignments(self):
         return self.model.getListOfInitialAssignments();
 
-    def toSBML(self):
-        errors = self.document.checkConsistency();
-        if (errors > 0):
+    def toSBML(self, disable_warnings = True):
+        errors = self.document.checkConsistency()
+        if (errors > 0) and not disable_warnings:
             for i in range(errors):
                 print self.document.getError(i).getSeverityAsString(), ": ", self.document.getError(i).getMessage();
               
