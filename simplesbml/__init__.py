@@ -319,9 +319,9 @@ class sbmlModel(object):
         errors = self.document.checkConsistency()
         if (errors > 0) and not disable_warnings:
             for i in range(errors):
-                print self.document.getError(i).getSeverityAsString(), ": ", self.document.getError(i).getMessage();
+                print(self.document.getError(i).getSeverityAsString(), ": ", self.document.getError(i).getMessage())
               
-        return libsbml.writeSBMLToString(self.document);
+        return libsbml.writeSBMLToString(self.document)
 
     def __repr__(self):
         return self.toSBML()
